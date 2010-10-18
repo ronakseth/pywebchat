@@ -1,0 +1,6 @@
+#summary ChatServer Class
+
+The ChatServer class is found in ChatServer.py and stores all the messages and user data.
+
+This class handles the sending and receiving of messages, as well as logging clients in and out.
+TODO: details about the class and how it works

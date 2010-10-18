@@ -5,17 +5,17 @@ If you think you can help with a feature/task, email t33n4n@gmail.com
 
 = Features =
 
-  *Allow users to specify the port the server runs on with a command line argument.
-e.g. $python ChatServer.py 80
+  * Allow users to specify the port the server runs on with a command line argument.
+  e.g. $python ChatServer.py 80
 
-  *Design a logo and add it to the login.html and chat.html markup
+  * Design a logo and add it to the login.html and chat.html markup
 
-  *Add additional stylesheets (CSS) and allow the user to choose which one to use with a command line argument when the server is started
+  * Add additional stylesheets (CSS) and allow the user to choose which one to use with a command line argument when the server is started
 
-  *Add a search(searchstring) method to the ChatServer class that searches existing messages for a string, and returns the messages found in a ServerResponse object. (This will be used later in a search feature to be added)
+  * Add a search(searchstring) method to the ChatServer class that searches existing messages for a string, and returns the messages found in a ServerResponse object. (This will be used later in a search feature to be added)
 
-  *Add a getMessageBy(username) method to the ChatServer class that returns all the messages by user 'username'. (This will be used later in a feature where clicking a username displays all the message by that user)
+  * Add a getMessageBy(username) method to the ChatServer class that returns all the messages by user 'username'. (This will be used later in a feature where clicking a username displays all the message by that user)
 
-  *add CSS for the 'error' and 'notification' divs so that they display in the right place.
+  * add CSS for the 'error' and 'notification' divs so that they display in the right place.
   
-  *add a README.txt to the tarball with the useage instructions from this wiki
+  * add a README.txt to the tarball with the useage instructions from this wiki

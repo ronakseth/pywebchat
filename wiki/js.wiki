@@ -1,3 +1,5 @@
+#summary the main.js file
+
 == main.js ==
 
 This file holds the main javascript functions for the client.

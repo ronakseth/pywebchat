@@ -8,7 +8,8 @@ $(document).ready(function() {
 	$.ajax({contentType:'multipart/form-data'});
 	getMessagesForced();
 	setInterval('getMessages()', 3000);
-	$('#userinput').keyup(function(e) {	if(e.keyCode == 13) {  sendMessage('message'); $(this).val('');  }       });
+	$('#userinput').keyup(function(e) {	if(e.keyCode == 13) { var msg= $('#userinput').val(); sendMessage(msg,'message'); $(this).val('');  }   });
+	$('#searchtext').keyup(function(e) {	var msg = $("#searchtext").val(); dosearch(); });	
 	$('#userinput').focus();
 	$('.header').hover(  function(){$(this).addClass('highlight');},    function(){$(this).removeClass('highlight');}  );
        	$('.userinput').hover(  function(){$(this).addClass('highlight');}, function(){$(this).removeClass('highlight');}  );
@@ -16,17 +17,36 @@ $(document).ready(function() {
 </script>
 <body>
 <div class='header'>PyWebChat</div>
-<div class='chatinput'>
-	<TEXTAREA id="userinput" class="userinput textbox"></TEXTAREA><br/>
-	<a href='' onclick='logout()'>logout</a>
+<div id="maincontainer" class="maincontainer">
+<div class="leftcolumn">
+	<div id="chatinput" class="chatinput">
+		<TEXTAREA id="userinput" class="userinput textbox"></TEXTAREA><br/>
+		<a href='' onclick='logout()'>logout</a>
+	</div>
+		<div id='notification' class='notification'></div>
+	<div id='error' class='error'></div>
+	
+	
+
+
+	
+
+	<div id='messages' class='chatlog'></div>
+
+
 </div>
+<div id="rightcolumn">
+	<div id="searchinput" class="searchinput">
+		<input autopost=false type="text" id="searchtext" class="textbox loginbox" value=""><br/>
+		<a href='#' onclick='dosearch();'>search</a>
+	</div>
 <div id='onlinewrapper' class='onlinewrapper'>
-	<a href=''>Online Now:</a>
-	<div id='online' class='online'></div>
+		<a href=''>Online Now:</a>
+		<div id='online' class='online'></div>
+	</div>
+	<div id='searchresults' class="chatlog"></div>
 </div>
-<div id='notification' class='notification'></div>
-<div id='error' class='error'></div>
-<div id='messages' class='chatlog'></div>
+</div>
 </body>
 </html>
 

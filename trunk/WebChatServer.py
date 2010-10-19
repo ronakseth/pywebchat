@@ -53,10 +53,15 @@ class MyHandler(BaseHTTPRequestHandler):
 		elif requestType=='login':
 			response = self.server.chatServer.login(text, IP)
 			response and responseList.append(response.serialize())
+		elif requestType=='search':
+			response = self.server.chatServer.search(IP,text)
+			response and responseList.append(response.serialize())
+		#while we're here get an uptodate list of who's online
 		response = self.server.chatServer.getOnlineList()
 		response and responseList.append(response.serialize())
 		#return responses to the client
 		json.dump(responseList, self.wfile)
+
 				
 				
 	

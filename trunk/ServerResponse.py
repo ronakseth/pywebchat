@@ -37,6 +37,26 @@ class ServerResponseMessages(ServerResponse):
 		self.isError = False
 		self.contents = (type(messages) is types.ListType) and messages or [messages]
 
+class ServerResponseSearchMessages(ServerResponse):
+	"""
+	The server response returned by search messages if there are some messages to be returned
+	"""
+	def __init__(self, messages):
+		self.target = 'searchresults'
+		self.action = 'replace'
+		self.isError = False
+		self.contents = (type(messages) is types.ListType) and messages or [messages]
+
+class ServerResponseSearchNoMessages(ServerResponse):
+	"""
+	The server response returned by search messages if there are no messages to be returned
+	"""
+	def __init__(self, searchString):
+		self.target = 'searchresults'
+		self.action = 'replace'
+		self.isError = False
+		self.contents = [htmlWrapper("<div id=noresults>{0} not found</div>".format(searchString), 'noresults')]
+
 class ServerResponseOnlineList(ServerResponse):
 	def __init__(self, onlinehtml):
 		self.target = 'online'

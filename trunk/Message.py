@@ -22,11 +22,13 @@ class Message:
 		if len(message) > 250: return self.lengthError
 		return message
 
-	def getHTML(self, username=''):
+	def getHTML(self, username='', idPrefix='msg'):
 		aditionalCssClass = self.cssClass + ' ' + ((self.username==username) and 'mine' or '  ') #add class 'messagemine' if its my message
-		divId = 'msg{0}'.format(self.Id)
+		divId = idPrefix + str(self.Id)
 		html = self.htmlFormatString.format(self.username, self.time.time().__str__()[:8], aditionalCssClass, self.body, divId)
 		return htmlWrapper(html, divId)
+
+
 	
 
 

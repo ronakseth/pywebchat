@@ -2,7 +2,7 @@ import datetime
 
 class Message:
 	"""
-	A single message object stored on the chat server
+	A single message object stored on the chat server.
 	"""
 	htmlFormatString="<div id='{4}' class='message  {2}'><div class='messageBody'>{3}</div><div class=time>{1}</div><div class=name>{0}</div></div>"	
 	htmlError = "<span class='error'>Message hidden due to HTML content</span>"

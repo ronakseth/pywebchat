@@ -77,6 +77,12 @@ class ChatServer:
 		def isClientRegistered(self, IP):
 			return self.clients.has_key(IP)
 
+		def search(self, IP, searchString):
+			if not (self.clients.has_key(IP)): return ServerResponseErrorNotLoggedIn()
+			username = self.clients[IP].username
+			messageList = [msg.getHTML(username, idPrefix='srchmsg') for msg in self.messages if searchString in msg.body]
+			return messageList and ServerResponseSearchMessages(messageList) or ServerResponseSearchNoMessages(searchString)
+
 class ClientData:
 	"""
 	Stores the required data about a client

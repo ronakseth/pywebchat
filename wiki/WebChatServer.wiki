@@ -1,3 +1,5 @@
+#summary WebChatServer and MyHandler classed
+
 == WebChatServer ==
 
 The WebChatServer class is found in the WebChatServer.py file along with the MyHandler Class.

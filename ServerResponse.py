@@ -55,7 +55,7 @@ class ServerResponseSearchNoMessages(ServerResponse):
 		self.target = 'searchresults'
 		self.action = 'replace'
 		self.isError = False
-		self.contents = [htmlWrapper("<div id=noresults>{0} not found</div>".format(searchString), 'noresults')]
+		self.contents = [htmlWrapper("<div id=noresults>'{0}' not found</div>".format(searchString), 'noresults')]
 
 class ServerResponseOnlineList(ServerResponse):
 	def __init__(self, onlinehtml):

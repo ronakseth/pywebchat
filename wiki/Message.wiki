@@ -1,3 +1,5 @@
+#summary The Message and htmlWrapper classes
+
 == Message ==
 
 The Message class is found in the Message.py file along with the htmlWrapper class.

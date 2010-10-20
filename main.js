@@ -1,7 +1,15 @@
+var awaitingSearchResponse = false;
+
 function getMessages(){sendMessage('none', 'update');}
 function getMessagesForced(){sendMessage('none' ,'updateForced');}
 function logout(){sendMessage('none', 'logout');}
-function dosearch(){var msg = $("#searchtext").val();  if (msg.length > 2){ sendMessage( msg,'search');}else{$('#searchresults').html('');}}
+function dosearch(){
+var msg = $("#searchtext").val();
+	if (awaitingSearchResponse != false){ return 0;}
+	 if (msg.length > 2){ 
+		sendMessage( msg,'search');
+	}else{
+		$('#searchresults').html('');}}
 function handleResponse(response){//handles a single ServerResponse object
 	var target = '#' + response['target'];
 	var action = response['action'];
@@ -38,6 +46,8 @@ function handleResponse(response){//handles a single ServerResponse object
 	{
 		$('#' + addedDivs[i]).fadeTo("slow",1.0);
 	}
+
+	if (target == '#searchresults'){awaitingSearchResponse = false;}//if this is a response to a search, reset the flag
 	
 }
 

@@ -3,6 +3,7 @@ import WebChatServer
 from ServerResponse import *
 import datetime
 from Message import *
+import uuid
 
 class ChatServer:
 		"""
@@ -82,6 +83,9 @@ class ChatServer:
 			username = self.clients[IP].username
 			messageList = [msg.getHTML(username, idPrefix='srchmsg') for msg in self.messages if searchString in msg.body]
 			return messageList and ServerResponseSearchMessages(messageList) or ServerResponseSearchNoMessages(searchString)
+
+		def _getNewId(self):
+			return uuid.uuid4()
 
 class ClientData:
 	"""

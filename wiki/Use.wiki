@@ -2,7 +2,7 @@
 
 = Installation and use =
 
-To start using PyWebChat, download the pywebchat.tar.gz file from the source.
+To start using PyWebChat, download the pywebchat.tar.gz file from the downloads section.
 
 untar the file to a directory using "tar -xvwzf pywebchat.tar.gz" (linux)
 

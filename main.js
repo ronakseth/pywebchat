@@ -7,6 +7,7 @@ function dosearch(){
 	var msg = $("#searchtext").val();
 	if (awaitingSearchResponse != false){ return 0;}
 	 if (msg.length > 2){ 
+		awaitingSearchResponse = true;
 		sendMessage( msg,'search');
 	}else{
 		$('#searchresults').html('');}}

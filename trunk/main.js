@@ -4,7 +4,7 @@ function getMessages(){sendMessage('none', 'update');}
 function getMessagesForced(){sendMessage('none' ,'updateForced');}
 function logout(){sendMessage('none', 'logout');}
 function dosearch(){
-var msg = $("#searchtext").val();
+	var msg = $("#searchtext").val();
 	if (awaitingSearchResponse != false){ return 0;}
 	 if (msg.length > 2){ 
 		sendMessage( msg,'search');

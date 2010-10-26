@@ -1,5 +1,8 @@
 var awaitingSearchResponse = false;
 
+
+function showsearch(){$('#leftcolumn').toggle();$('#rightcolumn').toggle();$('#searchtext').focus();}
+function showmessages(){$('#rightcolumn').toggle();$('#leftcolumn').toggle();$('#userinput').focus();}
 function getMessages(){sendMessage('none', 'update');}
 function getMessagesForced(){sendMessage('none' ,'updateForced');}
 function logout(){sendMessage('none', 'logout');}

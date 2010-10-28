@@ -1,4 +1,5 @@
 import time
+import sys
 import WebChatServer
 from ServerResponse import *
 import datetime
@@ -29,7 +30,7 @@ class ChatServer:
 			self.serverName = serverName
 			self.messageCounter = 1
 			self.login(serverName, IP) #register the server so we can send messages
-			print 'Chat server started'
+			print 'Chat server initialised'
 
 		def login(self, username, IP ):
 			if not self.clients.has_key(IP) and  self.validUsername(username):
@@ -95,18 +96,30 @@ class ClientData:
 		self.username = username
 		self.lastUpdated = datetime.datetime.now() - datetime.timedelta(minutes=30) #set last updated to ten minutes ago.
 
-def startServer():
+def startServer(port):
 	MyHandler = WebChatServer.MyHandler
-        webServer = WebChatServer.MiniWebServer(('', 80), MyHandler)
+        webServer = WebChatServer.MiniWebServer(('', port), MyHandler)
 	chatServer = ChatServer('www.mydomain.com')
 	webServer.chatServer = chatServer
-	print 'Starting the WebServer'	
+	print 'Starting the WebServer\nListening on port {0}'.format(port)	
 	try:
 		webServer.serve_forever()
 	except KeyboardInterrupt:
 		print 'exiting (received ^C)'		
 		webServer.socket.close()
-if __name__ == "__main__":
-	startServer()	
+
+
+if __name__ == "__main__":	
+	if len(sys.argv)>=2:
+		port = sys.argv[1]
+		try:
+			port = int(port)
+			if port > 65535 or port < 1: raise ValueError
+		except ValueError:
+			print 'Usage: python ChatServer.py [portnumber 1-65535]'
+			sys.exit()
+	else:
+		port = 80
+	startServer(port)
 	
 

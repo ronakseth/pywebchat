@@ -26,4 +26,4 @@ If you think you can help with a feature/task, email t33n4n@gmail.com
     DONE
 
   * Add a command directive '@' that causes the following word to be interpreted as a command.. e.g. @logout to logout, @clear to clear the screen of message @get to force an update of all messages in the last 10 minutes or so.
-This would require a special command handler class.. if the first char of a message is @, the remaining string is passed into the command handler and the appropriate server response object returned.
+  This would require a special command handler class.. if the first char of a message is @, the remaining string is passed into the command handler and the appropriate server response object returned.

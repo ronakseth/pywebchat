@@ -83,6 +83,7 @@ class ChatServer:
 			if not (self.clients.has_key(IP)): return ServerResponseErrorNotLoggedIn()
 			username = self.clients[IP].username
 			messageList = [msg.getHTML(username, idPrefix='srchmsg') for msg in self.messages if searchString in msg.body]
+			messageList.reverse() #messages should appear with newest at the top.
 			return messageList and ServerResponseSearchMessages(messageList) or ServerResponseSearchNoMessages(searchString)
 
 		def _getNewId(self):
